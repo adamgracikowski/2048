@@ -245,9 +245,7 @@
             Foreground="#FF5B4949">
             <TextBlock TextWrapping="Wrap">
                 <Run FontWeight="Bold">HOW TO PLAY :</Run>
-                Use your arrow keys to move tiles. When two tiles of the same value collide, they merge into the tile of double the value. See if you can get to the<Run FontWeight="Bold">2048 tile</Run>
-                !</TextBlock>
+                Use your arrow keys to move tiles. When two tiles of the same value collide, they merge into the tile of double the value. See if you can reach the 2048 tile!</TextBlock>
         </Label>
-
     </Grid>
 </Window>
