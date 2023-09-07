@@ -1,12 +1,253 @@
-﻿<Window x:Class="_2048.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_2048"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+﻿<Window
+    x:Class="_2048.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_2048"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="2048"
+    Width="500"
+    Height="800"
+    MinWidth="500"
+    MinHeight="700"
+    Icon="\images/logo.ico"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid MaxWidth="550" MaxHeight="750">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="2.5*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1.5*" />
+        </Grid.RowDefinitions>
+
+        <!--  TITLE  -->
+        <Label
+            x:Name="LabelGameTitle"
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Content="2048"
+            FontSize="70"
+            FontWeight="Bold"
+            Foreground="#FF5B4949" />
+
+        <!--  GAME STATISTICS  -->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Style="{StaticResource StatisticsBorder}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label
+                        x:Name="LabelScoreHeader"
+                        Content="Score"
+                        Style="{StaticResource HeaderLabel}" />
+                    <Label
+                        x:Name="LabelScore"
+                        Content="0"
+                        Style="{StaticResource StatisticsLabel}" />
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Style="{StaticResource StatisticsBorder}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label
+                        x:Name="LabelBestHeader"
+                        Content="Best"
+                        Style="{StaticResource HeaderLabel}" />
+
+                    <Label
+                        x:Name="LabelBest"
+                        Content="0"
+                        Style="{StaticResource StatisticsLabel}" />
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Style="{StaticResource StatisticsBorder}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label
+                        x:Name="LabelMovesHeader"
+                        Content="Moves"
+                        Style="{StaticResource HeaderLabel}" />
+
+                    <Label
+                        x:Name="LabelMoves"
+                        Content="0"
+                        Style="{StaticResource StatisticsLabel}" />
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!--  GAME BUTTONS  -->
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="ButtonNewGame"
+                Grid.Column="1"
+                Click="ButtonNewGame_Click"
+                Content="New Game"
+                Style="{StaticResource StyleGameButtons}" />
+            <Button
+                x:Name="ButtonUndo"
+                Grid.Column="3"
+                Click="ButtonUndo_Click"
+                Content="Undo"
+                Style="{StaticResource StyleGameButtons}" />
+        </Grid>
+
+        <!--  MAIN BOARD  -->
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Border Style="{StaticResource RoundedUniformGridContainer}">
+                <UniformGrid
+                    x:Name="MainBoard"
+                    Columns="4"
+                    Rows="4">
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                    <Border Style="{StaticResource RoundedLabelContainer}">
+                        <Label Content="1" Style="{StaticResource TileLabel}" />
+                    </Border>
+                </UniformGrid>
+            </Border>
+        </Grid>
+
+        <!--  JOYSTICK  -->
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button
+                x:Name="ButtonLeft"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Margin="60,20,0,20"
+                Click="ButtonLeft_Click"
+                Style="{StaticResource StyleGameButtons}">
+                <Image
+                    Width="24"
+                    Height="24"
+                    Source="\images\leftArrow.png" />
+            </Button>
+            <Button
+                x:Name="ButtonRight"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="2"
+                Margin="0,20,60,20"
+                Click="ButtonRight_Click"
+                Style="{StaticResource StyleGameButtons}">
+                <Image
+                    Width="24"
+                    Height="24"
+                    Source="\images\rightArrow.png" />
+            </Button>
+            <Button
+                x:Name="ButtonUp"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,20,0,0"
+                Click="ButtonUp_Click"
+                Style="{StaticResource StyleGameButtons}">
+                <Image Source="\images\upArrow.png" />
+            </Button>
+            <Button
+                x:Name="ButtonDown"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,0,0,20"
+                Click="ButtonDown_Click"
+                Style="{StaticResource StyleGameButtons}">
+                <Image Source="\images\downArrow.png" />
+            </Button>
+        </Grid>
+
+        <!--  HOW TO PLAY  -->
+        <Label
+            x:Name="LabelHowToPlay"
+            Grid.Row="6"
+            Grid.Column="1"
+            Margin="10,0,10,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            Foreground="#FF5B4949">
+            <TextBlock TextWrapping="Wrap">
+                <Run FontWeight="Bold">HOW TO PLAY :</Run>
+                Use your arrow keys to move tiles. When two tiles of the same value collide, they merge into the tile of double the value. See if you can get to the<Run FontWeight="Bold">2048 tile</Run>
+                !</TextBlock>
+        </Label>
+
     </Grid>
 </Window>
