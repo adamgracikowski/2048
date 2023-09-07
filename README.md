@@ -18,6 +18,10 @@ The 2048 game has been described by The Wall Street Journal as *"almost like Can
 
 The game was originally written by by Italian web developer [Gabriele Cirulli](https://github.com/gabrielecirulli).
 
+<p align="center">
+  <img src="https://github.com/adamgracikowski/2048/blob/master/2048.gif"/>
+</p>
+
 ## Gameplay:
 
 2048 is played on a plain 4×4 grid, with numbered tiles that slide when a player moves them using the four arrow keys. The game begins with two tiles already in the grid, having a value of either 2 or 4, and another such tile appears in a random empty space after each turn. Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of the grid. If two tiles of the same number collide while moving, they will merge into a tile with the total value of the two tiles that collided. The resulting tile cannot merge with another tile again in the same move.
