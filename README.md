@@ -1,5 +1,7 @@
 # 2048
 
+The main objective of the project was to practice **event-driven programming** as well as using **C#** with **WPF** and **XAML**.
+
 ## Table of Contents:
 
 - [What is the 2048 game?](#what-is-the-2048-game?)
