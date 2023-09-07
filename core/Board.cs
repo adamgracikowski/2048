@@ -104,7 +104,7 @@ namespace _2048.core
         // logic to move every tile on board in a given direction
         public Tuple<bool, int> MoveLeft()
         {
-            Board clone = (Board)this.Clone();
+            Board clone = (Board)Clone();
 
             int points = 0;
             for (int i = 0; i < SIZE; ++i)
@@ -114,9 +114,9 @@ namespace _2048.core
                     points += clone.MoveTileLeft(clone.Tiles[i, j]);
                 }
             }
-            if (!this.Equals(clone))
+            if (!Equals(clone))
             {
-                this.CopyTileValues(clone);
+                CopyTileValues(clone);
                 return new Tuple<bool, int>(true, points);
             }
 
@@ -124,7 +124,7 @@ namespace _2048.core
         }
         public Tuple<bool, int> MoveRight()
         {
-            Board clone = (Board)this.Clone();
+            Board clone = (Board)Clone();
 
             int points = 0;
             for (int i = 0; i < SIZE; ++i)
@@ -134,9 +134,9 @@ namespace _2048.core
                     points += clone.MoveTileRight(clone.Tiles[i, j]);
                 }
             }
-            if (!this.Equals(clone))
+            if (!Equals(clone))
             {
-                this.CopyTileValues(clone);
+                CopyTileValues(clone);
                 return new Tuple<bool, int>(true, points);
             }
 
@@ -144,7 +144,7 @@ namespace _2048.core
         }
         public Tuple<bool, int> MoveUp()
         {
-            Board clone = (Board)this.Clone();
+            Board clone = (Board)Clone();
 
             int points = 0;
             for (int i = 0; i < SIZE; ++i)
@@ -154,9 +154,9 @@ namespace _2048.core
                     points += clone.MoveTileUp(clone.Tiles[j, i]);
                 }
             }
-            if (!this.Equals(clone))
+            if (!Equals(clone))
             {
-                this.CopyTileValues(clone);
+                CopyTileValues(clone);
                 return new Tuple<bool, int>(true, points);
             }
 
@@ -164,7 +164,7 @@ namespace _2048.core
         }
         public Tuple<bool, int> MoveDown()
         {
-            Board clone = (Board)this.Clone();
+            Board clone = (Board)Clone();
 
             int points = 0;
             for (int i = 0; i < SIZE; ++i)
@@ -174,9 +174,9 @@ namespace _2048.core
                     points += clone.MoveTileDown(clone.Tiles[j, i]);
                 }
             }
-            if (!this.Equals(clone))
+            if (!Equals(clone))
             {
-                this.CopyTileValues(clone);
+                CopyTileValues(clone);
                 return new Tuple<bool, int>(true, points);
             }
 

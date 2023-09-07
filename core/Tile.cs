@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace _2048.core
+﻿namespace _2048.core
 {
     public class Tile
     {

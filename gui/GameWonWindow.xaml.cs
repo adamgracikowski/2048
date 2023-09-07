@@ -7,10 +7,10 @@ namespace _2048
         public GameWonWindow(double width, double height, double left, double top)
         {
             InitializeComponent();
-            this.Width = width;
-            this.Height = height;
-            this.Left = left;
-            this.Top = top;
+            Width = width;
+            Height = height;
+            Left = left;
+            Top = top;
         }
     }
 }
