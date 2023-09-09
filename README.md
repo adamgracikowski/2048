@@ -1,5 +1,7 @@
 # 2048
 
+The main objective of the project was to practice **event-driven programming** as well as using **C#** with **WPF** and **XAML**.
+
 ## Table of Contents:
 
 - [What is the 2048 game?](#what-is-the-2048-game?)
@@ -38,7 +40,7 @@ Strategies in 2048 include keeping the largest tiles in a specific corner and to
 
 The clone of 2048 game was written in **C#** using GUI framework **WPF** (Windows Presentation Foundation developed by Microsoft) and **XAML**.
 
-The project was structured in such a way so as to separate the core (`Tile` and `Board` classes) from graphical user interface. That makes it is easy to extract the core and build a new GUI around it.
+The project was structured in such a way so as to separate the core (`Tile` and `Board` classes) from graphical user interface. Such structure makes it easy to extract the core and build a new GUI around it.
 
 ## Author:
 
