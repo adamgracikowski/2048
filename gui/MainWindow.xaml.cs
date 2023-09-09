@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace _2048
@@ -66,6 +67,8 @@ namespace _2048
             ConnectWithLayout();
             UpdateStatistics();
             UpdateBoard();
+
+            this.KeyDown += ApplyMove_KeyDown;
         }
 
         private void ButtonNewGame_Click(object sender, RoutedEventArgs e)
@@ -98,6 +101,24 @@ namespace _2048
         private void ButtonDown_Click(object sender, RoutedEventArgs e)
         {
             ApplyMove(Direction.Down);
+        }
+        private void ApplyMove_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Up:
+                    ApplyMove(Direction.Up);
+                    break;
+                case Key.Down:
+                    ApplyMove(Direction.Down);
+                    break;
+                case Key.Left:
+                    ApplyMove(Direction.Left);
+                    break;
+                case Key.Right:
+                    ApplyMove(Direction.Right);
+                    break;
+            }
         }
         private async void ApplyMove(Direction direction)
         {
